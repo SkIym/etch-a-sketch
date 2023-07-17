@@ -20,10 +20,20 @@
             <h1>Etch-a-Sketch</h1>
         </header>
         <main class="flex-container">
-            <div class="flex-container">  
-                <input id="setSquareNumber" name="setSquareNumber "type="range" value="16" min="1" max="75">
+            <div class="flex-container canvas">
+                <div id="grid-container">
+                </div>
             </div>
-            <div id="grid-container">
+            <div class="flex-container options"> 
+                <div id="range-wrapper">  
+                    <input id="setSquareNumber" name="setSquareNumber "type="range" value="16" min="1" max="75">
+                </div>
+                <div id="picker-wrapper">
+                    <input id="setColor" name="setColor" type="color" value="#000000">
+                </div>
+                <button class="modes" id="randomColor">random</button>
+                <button class="modes" id="shadeColor">shade</button>
+                <button class="modes" id="clearCanvas">clear</button>
             </div>
         </main>
     </body>

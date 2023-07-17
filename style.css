@@ -10,15 +10,20 @@ header {
 
 /*  main */
 main {
-    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    margin: 2em 0 2em 0;
+}
+
+.canvas {
     flex-flow: column;
-    margin: 2em 0em 2em 0em 
+    align-items: center;
 }
 
 #grid-container {
     display: grid;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -29,4 +34,38 @@ main {
 
 #setSquareNumber {
     margin-bottom: 1em;
+    appearance: slider-vertical;
+}
+
+#range-wrapper {
+    width: fit-content;
+}
+
+#setColor {
+    border: none;
+    opacity: 0;
+    width: 2em;
+}
+
+#picker-wrapper {
+    margin: 1em 0.5em 0.5em 0.5em;
+    background-color: black;
+    border-radius:2em;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.options {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+    gap: 2em;
+}
+
+.modes {
+    border: none;
+    padding: 1em;
+}
+
+.active {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
