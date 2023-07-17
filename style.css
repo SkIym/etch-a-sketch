@@ -2,17 +2,31 @@
     display: flex;
 }
 
+ /* header */
+
 header {
     justify-content: center;
 }
 
+/*  main */
 main {
     align-items: center;
     flex-flow: column;
+    margin: 2em 0em 2em 0em 
 }
 
-.grid-container {
-    width: 500px;
-    flex-wrap: wrap;
-    justify-content: center;
+#grid-container {
+    display: grid;
+    width: 600px;
+    height: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.grid-item {
+    background-color: white;
+    user-select: none;
+}
+
+#setSquareNumber {
+    margin-bottom: 1em;
 }
