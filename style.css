@@ -1,0 +1,18 @@
+.flex-container {
+    display: flex;
+}
+
+header {
+    justify-content: center;
+}
+
+main {
+    align-items: center;
+    flex-flow: column;
+}
+
+.grid-container {
+    width: 500px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
