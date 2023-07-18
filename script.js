@@ -75,7 +75,7 @@ document.body.onmouseup = () => (toggleLMB = false)
 function changeColor(e) {
     const square = e.target;
     // hover + LMB
-    if (e.type === 'mouseover' && toggleLMB) {  
+    if ((e.type === 'mouseover' && toggleLMB) || e.type == 'mousedown') {  
         if (mode == "rainbow") {
             const red = Math.floor(Math.random() * 255);
             const blue = Math.floor(Math.random() * 255);
@@ -100,6 +100,7 @@ function setGrid(size) {
         const square = document.createElement("div");
         square.classList.add("grid-item");
         square.addEventListener("mouseover", changeColor);
+        square.addEventListener("mousedown", changeColor);
         gridContainer.appendChild(square);
     
     }
