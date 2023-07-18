@@ -28,14 +28,16 @@ main {
 }
 
 .grid-item {
-    background-color: white;
+    background-color: rgb(255,255,255);
     user-select: none;
 }
 
 #setSquareNumber {
     margin-bottom: 1em;
     appearance: slider-vertical;
+    accent-color: rgb(135,135,135);
 }
+
 
 #range-wrapper {
     width: fit-content;
@@ -62,10 +64,21 @@ main {
 }
 
 .modes {
-    border: none;
+    border-radius: 1em;
+    border-width: 0;
     padding: 1em;
+    background-color: aliceblue;
+    width: 70%;
 }
 
-.active {
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+.active,
+#clearCanvas:hover {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+
+#showSize {
+    margin: 0.5em 0 0.5em 0;
+    font-size: 120%;
 }

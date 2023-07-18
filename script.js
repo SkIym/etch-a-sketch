@@ -8,13 +8,21 @@ const pickerWrapper = document.getElementById("picker-wrapper");
 const clearCanvas = document.getElementById("clearCanvas");
 const randomColor = document.getElementById("randomColor");
 const shadeColor = document.getElementById("shadeColor");
+const sizeIndicator = document.getElementById("showSize")
 
 let color = "black";
 let mode = "regular";
 
+// Credit: michalosman, TOP
+let toggleLMB = false
+document.body.onmousedown = () => (toggleLMB = true)
+document.body.onmouseup = () => (toggleLMB = false)
 
 // When grid size is toggled by the user 
-sizeRange.onchange = (e) => resizeGrid(e.target.value);
+sizeRange.onchange = (e) => {
+    resizeGrid(e.target.value);
+    showSize(e.target.value);
+}
 
 function clearGrid() {
     gridContainer.innerHTML = "";
@@ -25,8 +33,14 @@ function resizeGrid(size) {
     setGrid(size)
 }
 
+function showSize(size) {
+    sizeIndicator.innerHTML = `${size} &#10005 ${size}`;
+}
+
 // Clear canvas, same size
-clearCanvas.onclick = () => resizeGrid(sizeRange.value);
+clearCanvas.onclick = () => {
+    resizeGrid(sizeRange.value); ;
+};
 
 // When color picker is changed by the user
 colorPicker.onchange = () => {
@@ -35,42 +49,58 @@ colorPicker.onchange = () => {
 };
 
 let rgbActive = false;
+let shadeActive = false;
 
 // Color modes
 randomColor.onclick = () => {
     rgbActive = !rgbActive;
     if (rgbActive) {
         mode = "rainbow";
-        randomColor.classList.add("active")
+        randomColor.classList.add("active");
     }
     else {
         mode = "regular";
         color = `${colorPicker.value}`;
-        randomColor.classList.remove("active")
+        randomColor.classList.remove("active");
+        
     }
-    
+    shadeActive = false;
+    shadeColor.classList.remove("active");
 };
-
-let shadeActive = false;
 
 shadeColor.onclick = () => {
     shadeActive = !shadeActive;
     if (shadeActive) {
         mode = "shade";
-        shadeColor.classList.add("active")
+        shadeColor.classList.add("active");
     }
     else {
         mode = "regular";
         color = `${colorPicker.value}`;
-        shadeColor.classList.remove("active")
+        shadeColor.classList.remove("active");
     }
+    rgbActive = false;
+    randomColor.classList.remove("active");
 };
 
+function darker(value) {
+    let RGB = value.replace(/[^\d,]/g, '').split(',');
 
-// Credit: michalosman, TOP
-let toggleLMB = false
-document.body.onmousedown = () => (toggleLMB = true)
-document.body.onmouseup = () => (toggleLMB = false)
+    //  white
+    if (!(isNaN(RGB))) {
+        RGB = [255, 255, 255];
+    }
+    
+    let i = 0;
+    RGB.forEach((c) => {
+        let intc = parseInt(c);
+        RGB[i] = intc - (intc * 0.1);
+        i++;
+    });
+    return `rgb(${RGB[0]},${RGB[1]},${RGB[2]})`;
+
+}
+
 
 function changeColor(e) {
     const square = e.target;
@@ -80,11 +110,10 @@ function changeColor(e) {
             const red = Math.floor(Math.random() * 255);
             const blue = Math.floor(Math.random() * 255);
             const green = Math.floor(Math.random() * 255);
-            square.style.backgroundColor  = `rgb(${red},${blue},${green})`;
-            return
+            color  = `rgb(${red},${blue},${green})`;
         }
         else if (mode == "shade") {
-            return
+            color = darker(square.style.backgroundColor);
         }
         square.style.backgroundColor = color;
     }
