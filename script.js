@@ -10,7 +10,7 @@ const randomColor = document.getElementById("randomColor");
 const shadeColor = document.getElementById("shadeColor");
 const sizeIndicator = document.getElementById("showSize")
 
-let color = "black";
+let color = "#aaaaaa";
 let mode = "regular";
 
 // Credit: michalosman, TOP

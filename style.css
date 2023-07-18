@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Kaushan+Script&display=swap');
+
 .flex-container {
     display: flex;
 }
@@ -6,7 +8,14 @@
 
 header {
     justify-content: center;
+
 }
+h1 {
+    font-family: 'Kaushan Script', cursive;
+    color: rgb(59, 59, 59);
+    text-shadow: 1px 5px 8px #f2ffea;
+}
+
 
 /*  main */
 main {
@@ -51,9 +60,9 @@ main {
 
 #picker-wrapper {
     margin: 1em 0.5em 0.5em 0.5em;
-    background-color: black;
+    background-color: #aaaaaa;
     border-radius:2em;
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .options {
     flex-flow: column;
@@ -66,9 +75,11 @@ main {
 .modes {
     border-radius: 1em;
     border-width: 0;
-    padding: 1em;
-    background-color: aliceblue;
+    padding: 0.5em;
+    background-color: #f2ffea;
     width: 70%;
+    font-family: 'Baloo 2', cursive;
+    font-size: 16px;
 }
 
 .active,
@@ -81,4 +92,5 @@ main {
 #showSize {
     margin: 0.5em 0 0.5em 0;
     font-size: 120%;
+    font-family: 'Baloo 2', cursive;
 }
