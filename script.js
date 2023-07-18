@@ -90,13 +90,14 @@ function darker(value) {
     if (!(isNaN(RGB))) {
         RGB = [255, 255, 255];
     }
-    
+
     let i = 0;
     RGB.forEach((c) => {
         let intc = parseInt(c);
-        RGB[i] = intc - (intc * 0.1);
+        RGB[i] = intc - ((intc * 0.25));
         i++;
     });
+    console.log(RGB);
     return `rgb(${RGB[0]},${RGB[1]},${RGB[2]})`;
 
 }
